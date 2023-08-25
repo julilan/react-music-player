@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import { PlayerControls } from './components/PlayerControls';
+import TrackList from './components/TrackList';
 import { MusicContext } from './contexts/MusicContext';
 
 function App() {
@@ -9,11 +10,11 @@ function App() {
     tracks: [
       {
         name: 'Track 1',
-        file: '',
+        file: './music/cradle.mp3',
       },
       {
         name: 'Track 2',
-        file: '',
+        file: './music/guitar.mp3',
       },
     ],
     currentTrackIndex: 0,
@@ -23,9 +24,10 @@ function App() {
   console.log('State: ', state);
 
   return (
-    <MusicContext.Provider value={''}>
+    <MusicContext.Provider value={[state, setState]}>
       <div className='App'>
         <PlayerControls />
+        <TrackList />
       </div>
     </MusicContext.Provider>
   );
