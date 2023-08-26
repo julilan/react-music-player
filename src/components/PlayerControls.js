@@ -11,7 +11,7 @@ const PlayerControls = () => {
   const music = useMusicPlayer();
 
   return (
-    <>
+    <div style={{ padding: '1rem', backgroundColor: 'lightblue' }}>
       <div>
         <p>{music.currentTrackName}</p>
       </div>
@@ -31,7 +31,7 @@ const PlayerControls = () => {
       <button>
         <FontAwesomeIcon icon={faStepForward} onClick={music.PlayNextTrack} />
       </button>
-    </>
+    </div>
   );
 };
 
