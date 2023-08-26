@@ -4,22 +4,13 @@ import { MusicContext } from '../contexts/MusicContext';
 const useMusicPlayer = () => {
   const [state, setState] = useContext(MusicContext);
 
-  const togglePlay = () => {
-    if (state.isPlaying) {
-      setState({ ...state, isPlaying: false });
-    } else {
-      setState({ ...state, isPlaying: true });
-      state.audioplayer.play();
-    }
-  };
-
   const playTrack = (index) => {
     if (index === state.currentTrackIndex) {
       togglePlay();
     } else {
-      state.audioplayer.pause();
-      state.audioplayer = new Audio(state.tracks[index].file);
-      state.audioplayer.play();
+      state.audioPlayer.pause();
+      state.audioPlayer = new Audio(state.tracks[index].file);
+      state.audioPlayer.play();
       setState({
         ...state,
         currentTrackIndex: index,
@@ -27,6 +18,16 @@ const useMusicPlayer = () => {
       });
     }
   };
+
+  // Toggle play or pause depending on the state of the player
+  function togglePlay() {
+    if (state.isPlaying) {
+      state.audioPlayer.pause();
+    } else {
+      state.audioPlayer.play();
+    }
+    setState({ ...state, isPlaying: !state.isPlaying });
+  }
 
   const PlayPreviousTrack = () => {
     let newIndex = null;
