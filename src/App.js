@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import './App.css';
+import cradle from './assets/cradle.mp3';
+import guitar from './assets/guitar.mp3';
 import { PlayerControls } from './components/PlayerControls';
 import TrackList from './components/TrackList';
 import { MusicContext } from './contexts/MusicContext';
-import cradle from './music/cradle.mp3';
-import guitar from './music/guitar.mp3';
 
 function App() {
   const [state, setState] = useState({
