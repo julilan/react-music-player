@@ -8,14 +8,14 @@ import { MusicContext } from './contexts/MusicContext';
 
 function App() {
   const [state, setState] = useState({
-    audioPlayer: new Audio(),
+    audioPlayer: new Audio(cradle), // Fix! pass first track
     tracks: [
       {
-        name: 'Track 1: Cradle',
+        name: 'Cradle music',
         file: cradle,
       },
       {
-        name: 'Track 2: Guitar',
+        name: 'Guitar music',
         file: guitar,
       },
     ],
